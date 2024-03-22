@@ -38,26 +38,42 @@ Hemos creado el script inicial de la base de datos utilizando el diagrama Relaci
 - Aplicación de constraints y relaciones entre tablas.
 - Verificación de la consistencia del esquema generado comparándolo con el diagrama Relacional.
 
-### 4. Triggers
+**4. TRIGGERS**
 
-- **Tarea 1: Backup de Datos**
-  - Se han creado triggers en todas las tablas para realizar un backup de los datos junto con la fecha y el usuario que ha ejecutado la sentencia. Estos triggers se activan en updates y deletes.
-  - Se ha creado una tabla adicional llamada `DATA_USAGES` que registra el número de updates, inserts y deletes que realiza cada usuario.
-  - Se almacena la fecha de la última acción realizada por cada usuario en una tabla llamada `DDBB_CONNECTIONS`.
+**Tarea 1: Backup de Datos**
+- Triggers para realizar backups de datos en todas las tablas en caso de actualizaciones o eliminaciones.
+
+**Tarea 2: Registro de Operaciones**
+- Registro del número de operaciones realizadas por cada usuario en la tabla DATA_USAGES.
+
+**Tarea 3: Última Acción de Usuario**
+- Almacenamiento de la fecha de la última acción realizada por cada usuario en la tabla DDBB_CONNECTIONS.
+- Pruebas de inserción, eliminación o actualización en las tablas con triggers para verificar su correcto funcionamiento.
   
-### 5. Índices
+**5. INDICES**
 
-- **Tarea 1: Creación de Índices**
-  - Se revisaron las tablas en grupo para determinar la creación de índices ordinarios, únicos y compuestos según las necesidades de cada tabla.
-  - Se han creado un mínimo de 3 índices de cada tipo en el total de las tablas.
-  
-### 6. Vistas
+**Tarea 1: Índices Ordinarios**
+- Creación de índices ordinarios en las columnas de las tablas que se prevé que serán utilizadas en cláusulas WHERE.
 
-- **Tarea 1: Creación de Vistas**
-  - Se ha creado una vista para cada una de las tablas intermedias que junta los valores de las dos tablas junto con la tabla intermedia.
-  - Se han generado un mínimo de 5 vistas, agrupando las tablas más relacionadas entre ellas en caso de tener menos de 5 tablas intermedias.
-  - Se ha creado una vista que muestra toda la información de la base de datos.
-  - Se ha generado una vista llamada `backup_view` que muestra la información de todas las tablas backup creadas en los triggers en un solo listado.
+**Tarea 2: Índices Únicos**
+- Creación de índices únicos en las columnas de las tablas donde el valor no puede repetirse y puede ser utilizado en cláusulas WHERE.
+
+**Tarea 3: Índices Compuestos**
+- Creación de índices compuestos en la combinación de columnas de las tablas que normalmente se usan juntas en cláusulas WHERE al realizar una consulta.
+
+**6. VISTAS**
+
+**Tarea 1: Vistas Intermedias**
+- Crear vistas para cada una de las tablas intermedias que fusionen los valores de las dos tablas junto con la tabla intermedia. El nombre de la vista debe seguir el formato [nombre_tabla_intermedia]_view. Se deben generar un mínimo de 5 vistas, combinando las tablas más relacionadas en caso de tener menos de 5 tablas intermedias.
+
+**Tarea 2: Vista de Toda la Información**
+- Crear una vista que muestre toda la información de la base de datos.
+
+**Tarea 3: Vista de Backups**
+- Crear una vista llamada backup_view que muestre la información de todas las tablas de respaldo creadas en los triggers en un solo listado, representado en una única columna.
+
+**Pruebas**
+- Realizar pruebas que invoquen cada una de las vistas creadas en este apartado. Esto debe incluirse en el script .sql que se suba al repositorio GIT.
 
 ### 7. Funciones
 
